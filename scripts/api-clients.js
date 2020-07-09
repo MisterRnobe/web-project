@@ -18,6 +18,13 @@ class RestaurantClient {
             .then(body => body.json());
     }
 
+    count = (filter = () => true) => {
+        return fetch(`${this.baseUrl}?api_key=${this.apiKey}`)
+            .then(body => body.json())
+            .then(body => body.filter(elem => filter(elem)))
+            .then(body => body.length);
+    };
+
 
 }
 

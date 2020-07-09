@@ -6,6 +6,7 @@ const selectedDishIdToQuantity = new Map();
 let selectedPresent = false;
 let selectedGroupOrder = false;
 let randomPresentDishIdx = -1;
+const restaurantsPerPage = 20;
 
 const info = (item) => {
     console.info(item);
@@ -47,6 +48,8 @@ const convertResponseToTableBody = (resp) => {
         .join('');
 }
 
+let debug = {}
+
 const filter = (admArea, district, type, discount) => {
     return (elem) => {
         return elem && elem.typeObject && elem.admArea && elem.district && (elem.socialPrivileges > -1) &&
@@ -57,14 +60,67 @@ const filter = (admArea, district, type, discount) => {
     };
 }
 
-const onClickFind = async () => {
+const renderPages = (currPage, lastPage) => {
+    let pages;
+    if (lastPage === 0) {
+        pages = [];
+    } else if (lastPage <= 4) {
+        pages = [1, 2, 3, 4];
+    } else if (currPage <= 3) {
+        pages = [1, 2, 3, 4, '...', lastPage];
+    } else {
+        if (currPage > lastPage - 3) {
+            //pages might look like 1, ..., 5, 6, 7, 8 if 6 or 7 or 8 is selected
+            pages = [1, '...', lastPage - 3, lastPage - 2, lastPage - 1, lastPage];
+        } else {
+            //otherwise 1, 10, 11, 12, ... 100
+            pages = [1, currPage - 1, currPage, currPage + 1, '...', lastPage];
+        }
+    }
+    let pagesHtml = pages
+        .map(page => {
+            const onClick = page === '...'
+                ? ''
+                : `onclick="onClickFind(${page})"`;
+            const disabled = page === '...' || page === currPage
+                ? 'disabled'
+                : '';
+            return `<li class="page-item">
+                    <button type="button" class="btn btn-link" ${onClick} ${disabled}>
+                        ${page}
+                    </button>
+                </li>`
+        })
+        .join('');
+
+    if (pagesHtml) {
+        pagesHtml = `<nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <button type="button" class="btn-link btn" tabindex="-1" onclick="onClickFind(${currPage - 1})" ${currPage === 1 ? 'disabled' : ''} >Пред</button>
+                </li>
+                ${pagesHtml}
+                <li class="page-item">
+                    <button type="button" class="btn btn-link" onclick="onClickFind(${currPage + 1})" ${currPage === lastPage ? 'disabled' : ''}>След</button>
+                </li>
+            </ul>
+        </nav>`
+    }
+    return pagesHtml;
+};
+
+const onClickFind = async (currentPage = 1) => {
     const admArea = document.querySelector('#adm-area').value;
     const district = document.querySelector('#district').value;
     const type = document.querySelector('#type').value;
     const discount = document.querySelector('#discount').checked ? 1 : 0;
+    const bodyFilter = filter(admArea, district, type, discount);
 
+    const restaurantsCount = await restaurantClient.count(bodyFilter);
+    const pagesCount = Math.floor(restaurantsCount / restaurantsPerPage);
+    const pagesHtml = renderPages(currentPage, pagesCount);
 
-    const tbody = await restaurantClient.get(0, 1, filter(admArea, district, type, discount))
+    const tbody = await restaurantClient.get(currentPage - 1, restaurantsPerPage, bodyFilter)
         .then(resp => (info(resp)))
         .then(resp => (convertResponseToTableBody(resp)));
     const element = document.querySelector('.restaurants');
@@ -85,19 +141,7 @@ const onClickFind = async () => {
                 ${tbody}
             </tbody>
         </table>
-        <nav>
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" tabindex="-1">Пред</a>
-                </li>
-                <li class="page-item"><a class="page-link">1</a></li>
-                <li class="page-item"><a class="page-link">2</a></li>
-                <li class="page-item"><a class="page-link">3</a></li>
-                <li class="page-item">
-                    <a class="page-link">След</a>
-                </li>
-            </ul>
-        </nav>`;
+        ${pagesHtml}`;
 };
 
 const renderMenu = async () => {
