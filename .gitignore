@@ -1,2 +1,4 @@
 .idea
 *.iml
+
+http-client.private.env.json

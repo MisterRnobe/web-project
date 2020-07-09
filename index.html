@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <!--    Bootstrap with dependencies: https://getbootstrap.com/docs/4.5/getting-started/download/ -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    <!--    End bootstrap dependencies-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+          integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="pink-with-light-blue">
+<nav class="navbar navbar-expand-lg navbar-light pink-with-olive">
+    <a class="navbar-brand" href="#">
+        <img src="https://static.thenounproject.com/png/1406661-200.png" width="40px" height="40px" alt="Наше лого">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Партнёрам</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Клиентам</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Вакансии</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">О нас</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Поиск по сайту" aria-label="Поиск по сайту">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
+        </form>
+    </div>
+</nav>
+
+<!--Carousel start-->
+<div class="container mt-4">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div>
+                    <img class="d-block w-100" src="imgs/slide1.jpg">
+                </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Свежая выпечка</h3>
+                    <p>Каждый день</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div>
+                    <img class="d-block w-100" src="imgs/slide2.jpg">
+                </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Доставка</h3>
+                    <p>В короткие сроки</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div>
+                    <img class="d-block w-100 img-responsive" src="imgs/slide3.jpg">
+                </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">Блюда</h3>
+                    <p>Из натуральных ингредиентов</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<!--Carousel end-->
+
+<div class="container border-bottom container mt-4 pink-with-white">
+    <h3 class="text-center">Служба доставки еды</h3>
+    <div class="row text-center">
+        <div class="col-md-4 col-12">
+            <div class="pink-with-gray p-1">
+                <img src="imgs/table1.jpg">
+                <h5>Ответственные курьеры</h5>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="pink-with-gray p-1">
+                <img src="imgs/table2.jpg">
+                <h5>Современный транспорт</h5>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="pink-with-gray p-1">
+                <img src="imgs/table3.jpg">
+                <h5>Доставка по всему городу</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mt-3 mb-3">
+        <div class="col-md-4 col-12">
+            <div class="pink-with-gray p-1 h-100">
+                <img src="imgs/table4.jpg">
+                <h5>Опытные повара</h5>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="pink-with-gray p-1 h-100">
+                <img src="imgs/table5.jpg">
+                <h5>Свежие ингредиенты</h5>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="pink-with-gray p-1 h-100">
+                <img src="imgs/table6.jpg">
+                <h5>Удобная упаковка</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 pink-with-white p-1">
+    <h3 class="text-center">Выбор предприятия общественного питания</h3>
+    <form onsubmit="return false" class="pink-with-turquoise p-1">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="adm-area">Административный округ</label>
+                <input type="text" class="form-control" id="adm-area">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="district">Район</label>
+                <input type="text" class="form-control" id="district">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="type">Тип</label>
+                <input type="text" class="form-control" id="type">
+            </div>
+            <div class="form-group col-md-3 align-self-center">
+                <div class="form-check my-auto">
+                    <input class="form-check-input" type="checkbox" id="discount">
+                    <label class="form-check-label" for="discount">Соц. скидки</label>
+                </div>
+            </div>
+            <div class="form-group col-md-6 align-self-center">
+                <div class="text-center align-bottom">
+                    <button type="button" class="btn btn-primary" onclick="onClickFind()">Найти</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="restaurants">
+
+    </div>
+</div>
+<div class="container border-bottom pink-with-brown mt-4" id="menu-output">
+
+</div>
+<div class="container mt-4 border-bottom pink-with-olive">
+    <h3 class="text-center">Дополнительные опции</h3>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="add-present"
+               onchange="selectedPresent = this.checked">
+        <label class="form-check-label" for="add-present">
+            Хочу подарок
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="for-group"
+               onchange="selectedGroupOrder = this.checked">
+        <label class="form-check-label" for="for-group">
+            На компанию
+        </label>
+    </div>
+</div>
+<div class="container mt-4 pink-with-brown p-1">
+    <div class="row">
+        <div class="col-md-9 col-12">
+            <h3 id="price">Итого</h3>
+        </div>
+        <div class="col-md-3 col-12">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#order-accept"
+                    name="order-btn" onclick="onClickOrder()" disabled>Купить
+            </button>
+        </div>
+    </div>
+</div>
+<!--modal window-->
+<div class="modal fade" id="order-accept" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content pink-with-olive">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Подтвердите заказ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary">Подтвердить</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end modal window-->
+<footer class="page-footer font-small mt-4 pt-4 border-top">
+    <div class="container">
+        <h6 class="text-center">Следите за нами</h6>
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a class="mx-1" href="https://facebook.com">
+                    <i class="fab fa-facebook-f"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="mx-1" href="https://twitter.com">
+                    <i class="fab fa-twitter"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="mx-1" href="https://t.me">
+                    <i class="fab fa-telegram"> </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="text-center py-3">© 2020:
+        <a href="#">Доставка еды</a>
+    </div>
+</footer>
+
+<script src="scripts/api-clients.js"></script>
+<script src="scripts/main-page.js"></script>
+</body>
+</html>
